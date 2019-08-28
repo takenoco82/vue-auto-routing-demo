@@ -1,12 +1,17 @@
 <template>
   <div>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/private">Private</router-link> |
-      <router-link to="/login">Login</router-link>
-    </div>
+    <HeaderComponent />
     <router-view/>
     <p>This is a default layout</p>
   </div>
 </template>
+
+<script>
+import HeaderComponent from '@/components/header.vue'
+
+export default {
+  components: {
+    HeaderComponent
+  }
+}
+</script>
