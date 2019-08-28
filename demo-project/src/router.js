@@ -9,7 +9,7 @@ const RouterLayout = createRouterLayout(layout => {
   return import('@/layouts/' + layout + '.vue')
 })
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -18,3 +18,14 @@ export default new Router({
     }
   ]
 })
+
+// ログインチェック
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    next("login");
+  } else {
+    next();
+  }
+})
+
+export default router
